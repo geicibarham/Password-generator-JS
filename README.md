@@ -4,7 +4,7 @@ When user clicks on "generate password", they are prompt with certain criteria s
 lower, uppercase, special characters and numbers.
 User must choose at least one option.
 
-![alt text](https://github.com/geicibarham/friendly-parakeet-/tree/main/Develop/assets/images)
+![alt text](https://github.com/geicibarham/friendly-parakeet-/tree/main/Develop/assets/images);
 
 
 
