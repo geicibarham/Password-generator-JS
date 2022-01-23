@@ -4,3 +4,4 @@ When user clicks on "generate password", they are prompt with certain criteria s
 lower, uppercase, special characters and numbers.
 User must choose at least one option.
 
+![alt text](C:\Users\geici\OneDrive\Desktop\unc bootcamp\challenges\friendly-parakeet-\Develop\assets\images)
