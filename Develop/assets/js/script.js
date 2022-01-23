@@ -1,5 +1,6 @@
 
 // general function to generate random numbers that will be used again to generate ch and letters
+debugger;
 var randNum = Math.floor(Math.random ());
 
 //function to generate special cha
@@ -92,6 +93,7 @@ if (upperCase) {
   passwordText += upperCase();
  }
 }
+}
 };
 
 // Write password to the #password input
@@ -99,14 +101,10 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-  return writePassword ();
-
 }
 
 // Add event listener to generate button
 //need to call function when i am done
 generateBtn.addEventListener("click", writePassword);
-let password = generatePassword();
-writePassword();
 
-}
+
