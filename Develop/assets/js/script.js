@@ -1,6 +1,6 @@
 
-// general function to generate random numbers that will be used again to generate ch and letters
-debugger;
+var generateBtn = document.querySelector(#generate);
+
 var randNum = Math.floor(Math.random ());
 
 //function to generate special cha
@@ -30,10 +30,12 @@ function generateRandumNumber() {
 }
 
 // Get references to the #generate element
+let passwordText = "";
 
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword () {
+
 
 var passwordLength = parseInt(window.prompt (
   //ask user about password lenght
@@ -43,12 +45,12 @@ var passwordLength = parseInt(window.prompt (
 if (passwordLength < 8 || passwordLength > 128) {
   window.alert("password must be between 8 and 128 characters!");
   //does not work! ask in the group
-  return generatePassword();
+  return null;
 }
 
 if (passwordLength === "" || passwordLength === null) {
 window.alert("You need to provide a valid answer!");
-return generatePassword();
+return null;
 }
 
 //ask user if they would like special caracters
@@ -70,14 +72,14 @@ var specialCharacters = window.confirm (
   )
   if (!specialCharacters && !upperCase && !numbers && !lowerCase) {
     window.alert ("You need to choose at least one option!")
-    return generatePassword();
+    return generatePassword(passwordText);
   }
 //need to reference what user answered in prompt 
 //create while loop with all the conditions
 
-let passwordText = "";
+// let passwordText = "";
 
-while (passwordLength < 129 && passwordLength < 7) {
+if (passwordLength < 129 && passwordLength < 7) {
 
   if (specialCharacters) {
 passwordText += generateSpecialCh();
@@ -91,20 +93,22 @@ passwordText += lowercase();
 
 if (upperCase) {
   passwordText += upperCase();
- }
+ 
 }
 }
-};
+}
+}
+writePassword();
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = passwordText;
 }
+
 
 // Add event listener to generate button
 //need to call function when i am done
 generateBtn.addEventListener("click", writePassword);
-
-
+let password = generatePassword();
