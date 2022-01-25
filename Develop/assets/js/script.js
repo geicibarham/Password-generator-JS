@@ -5,7 +5,7 @@ var randNum = Math.floor(Math.random());
 
 //function to generate special cha
 //storing special cha
-var specialCharacters = '()${}@!*#%&';
+var specialCharacters = '()${}@!*#%&'
 function generateSpecialCh() {
   var randNum = Math.floor(Math.random() * specialCharacters.length);
   return specialCharacters[randNum];
@@ -84,26 +84,43 @@ function generatePassword() {
     if (specialCharacters) {
       passwordText += generateSpecialCh();
     }
+    else {
+      generateSpecialCh = "";
+    }
 
     if (numbers) {
       passwordText += generateRandumNumber();
     }
+    else {
+      numbers="";
+    }
+
     if (lowerCase) {
       passwordText += generateRandomLowercaserLetter();
     }
+    else {
+      lowerCase="";
+    }
+
     if (upperCase) {
       passwordText += generateUppercaseLetter();
 
     }
+    else {
+      upperCase = "";
+    }
   }
   console.log(passwordText);
  
-  return passwordText;
-}
+ 
 
-for (let i = 0; i<passwordText.length; i++) {
-  return passwordText[i];
- }
+  var i;
+  for (i = 0,i < passwordLength; i++;) {
+    passwordText = passwordText + upperCase + lowerCase + specialCharacters * passwordLength.length;
+  }  
+  return passwordText;
+  }
+
 
 
 
