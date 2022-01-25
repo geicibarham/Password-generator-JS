@@ -6,28 +6,29 @@ var randNum = Math.floor(Math.random());
 //function to generate special cha
 //storing special cha
 var specialCharacters = '()${}@!*#%&'
-function generateSpecialCh() {
-  var randNum = Math.floor(Math.random() * specialCharacters.length);
-  return specialCharacters[randNum];
-}
+// function generateSpecialCh() {
+//   var randNum = Math.floor(Math.random() * specialCharacters.length);
+//   return specialCharacters[randNum];
+// }
 
 //function to generate random letters lowercase
-var lowercase = 'abdcefghijklmnopqrsteuvxz';
-function generateRandomLowercaserLetter() {
-  var randNum = Math.floor(Math.random() * lowercase.length);
-  return lowercase[randNum];
-}
+var lowerCase = 'abdcefghijklmnopqrsteuvxz';
+// function generateRandomLowercaserLetter() {
+//   var randNum = Math.floor(Math.random() * lowercase.length);
+//   return lowercase[randNum];
+// }
 
 
 var upperCase = 'ABCDFGHIJKLMNOPQRSTUWXYZ';
-function generateUppercaseLetter() {
-  let randNum = Math.floor(Math.random() * upperCase.length);
-  return upperCase[randNum];
-}
+// function generateUppercaseLetter() {
+//   let randNum = Math.floor(Math.random() * upperCase.length);
+//   return upperCase[randNum];
+// }
 
-function generateRandumNumber() {
-  return Math.floor(Math.random() * 8);
-}
+var numbers = '0123456789'
+// function generateRandumNumber() {
+//   return Math.floor(Math.random() * 8);
+// }
 
 // Get references to the #generate element
 let passwordText = "";
@@ -54,75 +55,61 @@ function generatePassword() {
   }
 
   //ask user if they would like special caracters
-  var specialCharacters = window.confirm(
+  var specialCharactersCheck = window.confirm(
     "Would you like special characters?"
   );
   //ask user if they would like numbers
-  var numbers = window.confirm(
+  var numbersCheck = window.confirm(
     "Would you like numbers?"
   );
 
   //ask user if they would like lower case
-  var lowerCase = window.confirm(
+  var lowerCaseCheck = window.confirm(
     "Would you like lower case? "
   )
 
-  var upperCase = window.confirm(
+  var upperCaseCheck = window.confirm(
     "Would you like upper case? "
   )
-  if (!specialCharacters && !upperCase && !numbers && !lowerCase) {
+  if (!specialCharactersCheck && !upperCaseCheck && !numbersCheck && !lowerCaseCheck) {
     window.alert("You need to choose at least one option!")
     return generatePassword(passwordText);
   }
   //need to reference what user answered in prompt 
   //create while loop with all the conditions
 
-  // let passwordText = "";
+  let possibleCharactersToChooseFrom = "";
 
   if (passwordLength < 129 && passwordLength > 7) {
 
-    if (specialCharacters) {
-      passwordText += generateSpecialCh();
-    }
-    else {
-      generateSpecialCh = "";
+    if (specialCharactersCheck) {
+      possibleCharactersToChooseFrom += specialCharacters;
     }
 
-    if (numbers) {
-      passwordText += generateRandumNumber();
-    }
-    else {
-      numbers="";
+    if (numbersCheck) {
+      possibleCharactersToChooseFrom += numbers;
     }
 
-    if (lowerCase) {
-      passwordText += generateRandomLowercaserLetter();
+    if (lowerCaseCheck) {
+      possibleCharactersToChooseFrom += lowerCase;
     }
-    else {
-      lowerCase="";
-    }
-
-    if (upperCase) {
-      passwordText += generateUppercaseLetter();
+   
+    if (upperCaseCheck) {
+      possibleCharactersToChooseFrom +=upperCase;
 
     }
-    else {
-      upperCase = "";
-    }
+  
   }
-  console.log(passwordText);
+  console.log(possibleCharactersToChooseFrom);
  
- 
-
-  var i;
-  for (i = 0,i < passwordLength; i++;) {
-    passwordText = passwordText + upperCase + lowerCase + specialCharacters * passwordLength.length;
+  var passwordText =""
+  for (var i = 0; i < passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random()*possibleCharactersToChooseFrom.length);
+    var randomCharacter = possibleCharactersToChooseFrom[randomIndex];
+    passwordText += randomCharacter
   }  
   return passwordText;
-  }
-
-
-
+}
 
 // Write password to the #password input
 function writePassword() {
